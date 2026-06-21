@@ -58,50 +58,6 @@
         <!-- Main Card Container -->
         <div class="w-full bg-brand-card rounded-3xl border border-brand-border/80 dark:border-brand-border/30 shadow-xl overflow-hidden text-left transition-all duration-300">
             
-            @if($activeAttempt)
-                <!-- Prompt when an active session exists on this machine -->
-                <div>
-                    <div class="bg-brand-navy px-6 py-6 text-center text-white relative">
-                        <div class="absolute inset-0 bg-gradient-to-r from-amber-500/15 to-transparent opacity-40"></div>
-                        <h2 class="text-xl font-bold relative z-10 text-white">Active Session Detected</h2>
-                        <p class="mt-1 text-amber-400 text-xs font-semibold uppercase tracking-wider relative z-10">Verification</p>
-                    </div>
-
-                    <div class="p-6 space-y-6 text-center">
-                        <div class="p-4 bg-amber-500/10 border border-amber-500/20 rounded-xl text-left">
-                            <p class="text-xs text-brand-text-muted leading-relaxed font-medium">
-                                The browser currently retains an active placement attempt in progress for:
-                            </p>
-                            <p class="mt-2 text-base font-extrabold text-brand-text-dark">
-                                {{ $activeAttempt->full_name }}
-                            </p>
-                        </div>
-
-                        <div class="space-y-4">
-                            @php
-                                $currentSection = \App\Models\TestSection::find($activeAttempt->current_section_id);
-                            @endphp
-                            @if($currentSection)
-                                <a href="{{ route('student.test.section', [$activeAttempt, $currentSection]) }}" 
-                                   class="w-full inline-flex items-center justify-center gap-2 bg-brand-navy hover:bg-brand-navy-dark text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition-all duration-200 cursor-pointer">
-                                    Resume Candidate's Exam
-                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                                    </svg>
-                                </a>
-                            @endif
-
-                            <a href="{{ route('student.test.start', [$test, 'new_session' => 1]) }}" 
-                               class="w-full inline-flex items-center justify-center gap-2 bg-transparent text-brand-text-dark hover:bg-slate-100 dark:hover:bg-slate-800 border border-brand-border font-bold py-3.5 px-4 rounded-xl transition-all duration-200 cursor-pointer">
-                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
-                                </svg>
-                                Start a Brand New Exam
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            @else
                 <!-- Standard Intake Form when no session is active -->
                 <div>
                     <!-- Header -->
@@ -143,7 +99,7 @@
 
                         <!-- Phone -->
                         <div>
-                            <label for="phone" class="block text-sm font-semibold text-brand-text-dark">Phone Number <span class="text-brand-text-muted font-normal">(Optional)</span></label>
+                            <label placeholder="phone" for="phone" class="block text-sm font-semibold text-brand-text-dark">Phone Number <span class="text-brand-text-muted font-normal">(Optional)</span></label>
                             <div class="mt-1">
                                 <input type="text" name="phone" id="phone" value="{{ old('phone') }}"
                                     class="block w-full rounded-lg bg-brand-card border border-brand-border px-3 py-2.5 text-brand-text-dark shadow-sm focus:border-brand-gold focus:outline-none focus:ring-1 focus:ring-brand-gold sm:text-sm placeholder-slate-400 dark:placeholder-slate-500 transition-colors"
@@ -165,7 +121,6 @@
                         </div>
                     </form>
                 </div>
-            @endif
 
         </div>
 

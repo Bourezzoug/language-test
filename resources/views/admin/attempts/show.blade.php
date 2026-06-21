@@ -43,7 +43,7 @@
                     <span class="text-brand-text-dark font-medium">
                         {{ $attempt->finished_at ? $attempt->finished_at->format('M d, Y H:i:s') : 'In Progress' }}
                         @if($attempt->started_at && $attempt->finished_at)
-                            <span class="text-xs text-brand-text-muted/80 font-normal">({{ $attempt->finished_at->diffInMinutes($attempt->started_at) }} mins elapsed)</span>
+                            <span class="text-xs text-brand-text-muted/80 font-normal">({{ round(abs($attempt->finished_at->diffInMinutes($attempt->started_at))) }} mins elapsed)</span>
                         @endif
                     </span>
                 </div>

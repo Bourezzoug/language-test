@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('situation')->nullable(); // Listening situations
             $table->text('question_text');
             $table->string('audio_path')->nullable(); // Listening audios
+            $table->string('image_path')->nullable(); // Exercise images
             $table->integer('order')->default(0);
             $table->timestamps();
         });

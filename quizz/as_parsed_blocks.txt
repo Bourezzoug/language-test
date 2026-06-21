@@ -1,0 +1,431 @@
+
+================ PAGE 3 ================
+PROMPTS:
+   3 ===
+   1
+   3
+   5
+   2
+   4
+   6
+   Is it a bag?
+   My name is Tom.
+   a boy.
+   a tree.
+   Are you
+   ?
+   Yes, we are.
+   That’s my
+   .
+   He’s old.
+   Where are
+   the paints?
+   They’re
+   the box.
+OPTIONS:
+   Block 1: ['A panda can']
+   Block 2: ['A jump', 'B throw', 'C catch', 'D climb']
+   Block 3: ['A hungry', 'B angry', 'C cold', 'D hot']
+   Block 4: ['A baby', 'B family', 'C brother', 'D grandpa']
+   Block 5: ['A No, it is.', 'B Yes, it is.', 'C No, it isn’t.', 'D Yes, it isn’t.']
+   Block 6: ['A It’s', 'B I’m', 'C He’s', 'D She’s']
+   Block 7: ['A in', 'B on', 'C under', 'D next to']
+
+================ PAGE 4 ================
+PROMPTS:
+   4 ===
+   12
+   11
+   109
+   87
+   I like
+   but I don’t like
+   bananas.
+   There are two
+   in the room.
+   skirt and a
+   white shirt.
+   My rabbits
+   have got small
+   feet, long
+   ears and two
+   .
+   3
+   What
+   you wear
+   to school?
+   ✓
+   ✗
+   We
+   on Friday.
+   There are lots of
+   in Australia but
+   there aren’t any
+   pandas.
+OPTIONS:
+   Block 1: ['A tomatoes', 'B coconuts', 'C mangoes', 'D pears']
+   Block 2: ['A wardrobes', 'B clocks', 'C lamps', 'D beds']
+   Block 3: ['A does', 'B are', 'C do', 'D is']
+   Block 4: ['A black']
+   Block 5: ['A eyes', 'B tails', 'C arms', 'D legs']
+   Block 6: ['A go to school', 'B do gymnastics', 'A bears', 'B camels']
+   Block 7: ['C wolves', 'D kangaroos', 'C play basketball', 'D have a music lesson']
+
+================ PAGE 5 ================
+PROMPTS:
+   5 ===
+   18
+   17
+   1615
+   1413
+   They
+   playing in the
+   snow.
+   Kirsty
+   her grandma on
+   Saturdays.
+   They’re Jane’s.
+   4
+   Whose
+   are these?
+   What are
+   John and
+   Kate doing?
+   Saturday ✓
+   Is your brother
+   sleeping?
+   No, he
+   . He’s
+   reading a book.
+   I like making
+   a snowman in
+   .
+   Yes, please.
+   you like
+   some grapes?
+OPTIONS:
+   Block 1: ['A is', 'B do', 'C are', 'D can']
+   Block 2: ['A visit', 'B visits', 'C don’t visit', 'D doesn’t visit']
+   Block 3: ['A guitar', 'B glasses', 'C camera', 'D headphones']
+   Block 4: ['A spring', 'B summer', 'C autumn', 'D winter']
+   Block 5: ['A isn’t', 'B don’t', 'C aren’t', 'D doesn’t']
+   Block 6: ['A Do', 'B Are', 'C Can', 'D Would']
+
+================ PAGE 6 ================
+PROMPTS:
+   6 ===
+   24
+   23
+   21 22
+   2019
+   Last weekend, I
+   an
+   art gallery with
+   my mum and dad.
+   Last night I was
+   at home. I was in
+   the  .
+   I made a cake
+   with my mum.
+   5
+   I often go to the
+   after school. I
+   need to study.
+   Last weekend
+   we
+   sad. It was
+   raining.
+   We
+   have PE before
+   lunch on
+   Wednesday.
+   At school
+   I’m good at
+   .
+   We are making
+   a website in my
+   class.
+OPTIONS:
+   Block 1: ['A visit', 'B visits', 'C visited', 'D visiting']
+   Block 2: ['A hall', 'B kitchen', 'C bathroom', 'D dining room']
+   Block 3: ['A library', 'B cinema', 'C supermarket', 'D swimming pool']
+   Block 4: ['A is', 'B am', 'C was', 'D were']
+   Block 5: ['A once', 'B twice', 'C always', 'D three times']
+   Block 6: ['A maths', 'B music', 'C social studies', 'D computer studies']
+
+================ PAGE 7 ================
+PROMPTS:
+   7 ===
+   30
+   28
+   29
+   27
+   2625
+   There are
+   of
+   shops in my city.
+   Dolphins are
+   than sharks.
+   Did you
+   a good day
+   yesterday?
+   Yes, I
+   went to a
+   restaurant
+   with my
+   friends.
+   Were there
+   any windows
+   in the cave?
+   No, there
+   .
+   We’re going
+   swimming today.
+   Don’t forget your
+   .
+   Yes, I am.
+   you going
+   to France on
+   holiday?
+OPTIONS:
+   Block 1: ['A some', 'B much', 'C a lot', 'D many']
+   Block 2: ['A nice', 'B good', 'C worst', 'D friendlier']
+   Block 3: ['A has', 'B had', 'C have', 'D having']
+   Block 4: ['A are', 'B aren’t', 'C wasn’t', 'D weren’t']
+   Block 5: ['A glove', 'B trainers', 'C goggles', 'D tracksuit']
+   Block 6: ['A Do', 'B Are', 'C Can', 'D Am']
+
+================ PAGE 8 ================
+PROMPTS:
+   8 ===
+   36
+   35
+   33 3¢
+   3231
+   Do you like
+   my cake?Remember
+   to take your
+   .
+   It’s dark outside.
+   I
+   tie my
+   shoelaces when
+   I was seven.
+   Did you
+   climb this
+   when you went
+   to Italy?
+   I’ve got a
+   .
+   Yes, it is
+   delicious than
+   mine.
+   Yes, we did.
+   You shouldn’t
+   talk.
+   It was my
+   mum’s
+   birthday.
+   Why
+   you buying
+   a present?
+OPTIONS:
+   Block 1: ['A earache', 'B sore throat', 'C broken arm', 'D stomach ache']
+   Block 2: ['A safety vest', 'B brakes', 'C wheel', 'D gears']
+   Block 3: ['A most', 'B more', 'C much', 'D many']
+   Block 4: ['A lake', 'B island', 'C volcano', 'D countryside']
+   Block 5: ['A could', 'B was', 'C can', 'D did']
+   Block 6: ['A was', 'B were', 'C wasn’t', 'D weren’t']
+
+================ PAGE 9 ================
+PROMPTS:
+   9 ===
+   42
+   ¢1
+   4039
+   3837
+   He
+   cleaned his dad’s
+   car. Now he is
+   tired.
+   It sinks.
+   got tiny
+   .
+   Can I use this for
+   my smartphone?
+   Whose
+   is it?
+   What
+   if you put
+   a marble in
+   water?
+   It’s my uncle’s, but
+   you can use it.
+   salad when I
+   was a child, but
+   I love it now.
+   We were having
+   our English
+   lesson when
+   the ambulance
+   .
+   to like
+   to like
+   to like
+   to like
+OPTIONS:
+   Block 1: ['A is', 'B did', 'C was', 'D has']
+   Block 2: ['A fur', 'B petals', 'C scales', 'D feathers']
+   Block 3: ['A happen', 'B happens', 'C happened', 'D happening']
+   Block 4: ['A fish has']
+   Block 5: ['A charger', 'B laptop', 'C mouse', 'D screen']
+   Block 6: ['A I’m not use']
+   Block 7: ['B I didn’t use']
+   Block 8: ['C I don’t used']
+   Block 9: ['D I didn’t used']
+   Block 10: ['A came', 'B comes', 'C has come', 'D was coming']
+
+================ PAGE 10 ================
+PROMPTS:
+   10 ===
+   48
+   ¢7
+   ¢6¢5
+   ¢4¢3
+   How long have
+   you been a
+   ?
+   Has Tom ever
+   before?
+   Motorbikes
+   aren’t as
+   as planes.
+   kayaking
+   dolphins
+   hot-air balloon
+   No, he hasn’t. We
+   should help him. For about
+   five years.
+   I like your
+   new jeans.
+   Thanks. They are
+   really warm because
+   they’re made of
+   .
+   I’m learning
+   to play the
+   guitar. One day
+   I
+   a famous
+   musician.
+   My mum will
+   be furious if I
+   call her.
+OPTIONS:
+   Block 1: ['A fast', 'B faster', 'C fastest', 'D more fast']
+   Block 2: ['A pilot', 'B dentist', 'C gardener', 'D paramedic']
+   Block 3: ['A put up a tent', 'B been']
+   Block 4: ['C swum with']
+   Block 5: ['D been in a']
+   Block 6: ['A wood', 'B metal', 'C denim', 'D leather']
+   Block 7: ['A am', 'B will be', 'C am being', 'D have been']
+   Block 8: ['A don’t', 'B won’t', 'C haven’t', 'D shouldn’t']
+
+================ PAGE 11 ================
+PROMPTS:
+   11 ===
+   54
+   53
+   5251
+   50¢9
+   I’m sure
+   that man
+   stole my
+   bag.
+   I’m really
+   hungry. I
+   haven’t eaten
+   today.
+   But we can’t
+   that he did it at
+   the moment.
+   It tastes really
+   !
+   I think I put too
+   much sugar in it.
+   They
+   the
+   beach for hours!
+   They must be
+   tired.
+   I was happy
+   when I got
+   to my music
+   lesson because
+   my friend
+   her
+   guitar to school.
+   There are
+   five different
+   of
+   rhino in the world:
+   black, white, Javan,
+   greater one-horned
+   and Sumatran.
+   cleaning
+   How’s the cake
+   you made?
+OPTIONS:
+   Block 1: ['A solve', 'B prove', 'C borrow', 'D behave']
+   Block 2: ['A something', 'B anything', 'C nothing', 'D many']
+   Block 3: ['A cleaned', 'B had cleaned', 'C have cleaned', 'D have been']
+   Block 4: ['A sour', 'B salty', 'C bitter', 'D sweet']
+   Block 5: ['A brought', 'B had brought', 'C has brought', 'D was bringing']
+   Block 6: ['A species', 'B habitats', 'C predators', 'D sanctuaries']
+
+================ PAGE 12 ================
+PROMPTS:
+   12 ===
+   60
+   59
+   57 58
+   5655
+   What are
+   you doing on
+   Saturday?
+   a
+   museum with my
+   grandpa.
+   If I had my
+   own money, I
+   buy myself a
+   smartphone.
+   All my photos
+   from my laptop
+   yesterday. I’m
+   trying to get
+   them back.
+   I loved that film.
+   The
+   were fantastic.
+   To
+   for the event you
+   need to have a
+   certain level of
+   fitness.
+   Indoor skydiving
+   was great,
+   ?
+   Yeah, I want
+   to go again!
+   Yeah, especially
+   the actor who
+   played the hero.
+   What’s wrong?
+OPTIONS:
+   Block 1: ['A I visit', 'B I will visit']
+   Block 2: ['A should', 'B would', 'C can', 'D will']
+   Block 3: ['A delete', 'B deleted', 'C are deleted', 'D were deleted']
+   Block 4: ['A set', 'B plot', 'C cast', 'D script']
+   Block 5: ['A qualify', 'B achieve', 'C exercise', 'D persevere']
+   Block 6: ['A was it', 'B didn’t it', 'C wasn’t it', 'D doesn’t it']

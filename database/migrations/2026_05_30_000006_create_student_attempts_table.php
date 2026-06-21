@@ -28,6 +28,8 @@ return new class extends Migration
             $table->foreignId('current_section_id')->nullable()->constrained('test_sections')->nullOnDelete();
             $table->timestamp('current_section_started_at')->nullable();
             
+            $table->json('audio_plays')->nullable();
+            
             $table->timestamps();
         });
     }

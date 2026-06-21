@@ -45,9 +45,15 @@
                 
                 <!-- Client Logo -->
                 <div class="flex items-center">
-                    <a href="{{ route('student.index') }}">
-                        <img src="{{ asset('image/logo.png') }}" alt="LinguaBridge Logo" class="h-9 w-auto object-contain transition-transform duration-200 hover:scale-102">
-                    </a>
+                    @if(request()->routeIs('student.test.section'))
+                        <div class="h-9 flex items-center">
+                            <img src="{{ asset('image/logo.png') }}" alt="LinguaBridge Logo" class="h-9 w-auto object-contain">
+                        </div>
+                    @else
+                        <a href="{{ route('student.index') }}">
+                            <img src="{{ asset('image/logo.png') }}" alt="LinguaBridge Logo" class="h-9 w-auto object-contain transition-transform duration-200 hover:scale-102">
+                        </a>
+                    @endif
                 </div>
 
                 <!-- Navigation Links & Theme Toggle -->
@@ -95,7 +101,7 @@
         <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
             
             <!-- Global Flash Messages -->
-            @if(session('success'))
+            @if(session('success') && !request()->routeIs('student.test.result'))
                 <div class="mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 flex items-center gap-2 shadow-sm">
                     <svg class="h-5 w-5 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />

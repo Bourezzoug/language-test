@@ -20,6 +20,8 @@ Route::get('/attempt/{attempt}/section/{section}', [StudentTestController::class
 Route::post('/attempt/{attempt}/section/{section}/submit', [StudentTestController::class, 'submitSection'])->name('student.test.submit');
 Route::get('/attempt/{attempt}/result', [StudentTestController::class, 'showResult'])->name('student.test.result');
 Route::post('/attempt/{attempt}/start-timer', [StudentTestController::class, 'startListeningTimer'])->name('student.test.start-timer');
+Route::post('/attempt/{attempt}/audio-play', [StudentTestController::class, 'incrementAudioPlayCount'])->name('student.test.audio-play');
+Route::post('/attempt/{attempt}/save-answer', [StudentTestController::class, 'saveSingleAnswer'])->name('student.test.save-answer');
 
 /*
 |--------------------------------------------------------------------------

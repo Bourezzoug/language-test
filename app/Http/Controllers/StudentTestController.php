@@ -16,24 +16,44 @@ use Illuminate\Support\Facades\Validator;
 class StudentTestController extends Controller
 {
     /**
+     * Temporary toggle: Set to true to bypass preparation audios for testing.
+     * Set to false to enforce them.
+     */
+    protected bool $bypassPrepAudios = false;
+
+    /**
      * Display the student portal homepage listing active tests.
      */
     public function index(Request $request)
     {
-        if ($request->has('new_session') || $request->has('start_new')) {
+        if ($request->has('new_session')) {
             session()->forget('active_attempt_id');
         }
 
-        $activeAttempt = null;
         if (session()->has('active_attempt_id')) {
             $attempt = StudentAttempt::find(session('active_attempt_id'));
             if ($attempt && $attempt->status === 'in_progress') {
-                $activeAttempt = $attempt;
+                $currentSection = TestSection::find($attempt->current_section_id);
+                if ($currentSection) {
+                    return redirect()->route('student.test.section', [$attempt, $currentSection]);
+                }
             }
         }
 
-        $test = Test::where('is_active', true)->first();
-        return view('student.index', compact('test', 'activeAttempt'));
+        $juniorTest = Test::where('title', 'like', '%Academy Stars%')->where('is_active', true)->first();
+        $seniorTest = Test::where('title', 'like', '%Language Hub%')->where('is_active', true)->first();
+        
+        // Fallback to Evolve if Senior Test is not found
+        if (!$seniorTest) {
+            $seniorTest = Test::where('title', 'like', '%EVOLVE%')->where('is_active', true)->first();
+        }
+        
+        // Final fallback to first active test
+        if (!$juniorTest && !$seniorTest) {
+            $juniorTest = Test::where('is_active', true)->first();
+        }
+
+        return view('student.index', compact('juniorTest', 'seniorTest'));
     }
 
     /**
@@ -41,23 +61,21 @@ class StudentTestController extends Controller
      */
     public function start(Request $request, Test $test)
     {
-        if ($request->has('new_session') || $request->has('start_new')) {
-            session()->forget('active_attempt_id');
+        if (session()->has('active_attempt_id')) {
+            $attempt = StudentAttempt::find(session('active_attempt_id'));
+            if ($attempt && $attempt->status === 'in_progress') {
+                $currentSection = TestSection::find($attempt->current_section_id);
+                if ($currentSection) {
+                    return redirect()->route('student.test.section', [$attempt, $currentSection]);
+                }
+            }
         }
 
         if (!$test->is_active) {
             return redirect()->route('student.index')->with('error', 'This test is currently inactive.');
         }
 
-        $activeAttempt = null;
-        if (session()->has('active_attempt_id')) {
-            $attempt = StudentAttempt::find(session('active_attempt_id'));
-            if ($attempt && $attempt->status === 'in_progress') {
-                $activeAttempt = $attempt;
-            }
-        }
-
-        return view('student.start', compact('test', 'activeAttempt'));
+        return view('student.start', compact('test'));
     }
 
     /**
@@ -65,6 +83,16 @@ class StudentTestController extends Controller
      */
     public function initialize(Request $request, Test $test)
     {
+        if (session()->has('active_attempt_id')) {
+            $attempt = StudentAttempt::find(session('active_attempt_id'));
+            if ($attempt && $attempt->status === 'in_progress') {
+                $currentSection = TestSection::find($attempt->current_section_id);
+                if ($currentSection) {
+                    return redirect()->route('student.test.section', [$attempt, $currentSection]);
+                }
+            }
+        }
+
         if (!$test->is_active) {
             return redirect()->route('student.index')->with('error', 'This test is currently inactive.');
         }
@@ -99,7 +127,7 @@ class StudentTestController extends Controller
             'started_at' => Carbon::now(),
             'status' => 'in_progress',
             'current_section_id' => $firstSection->id,
-            'current_section_started_at' => $firstSection->type === 'listening' ? null : Carbon::now(),
+            'current_section_started_at' => $this->bypassPrepAudios ? Carbon::now() : null,
         ]);
 
         session(['active_attempt_id' => $attempt->id]);
@@ -137,9 +165,10 @@ class StudentTestController extends Controller
 
         // Initialize section timer state if the student is entering it for the first time
         if ($attempt->current_section_id !== $section->id) {
+            $isFirst = $attempt->test->sections()->orderBy('order')->first()->id === $section->id;
             $attempt->update([
                 'current_section_id' => $section->id,
-                'current_section_started_at' => $section->type === 'listening' ? null : Carbon::now(),
+                'current_section_started_at' => ($isFirst && !$this->bypassPrepAudios) ? null : Carbon::now(),
             ]);
         }
 
@@ -149,11 +178,15 @@ class StudentTestController extends Controller
         
         $listeningAudioFlowActive = false;
         
-        if ($section->type === 'listening' && $startedAt === null) {
+        if ($startedAt === null && !$this->bypassPrepAudios) {
             $listeningAudioFlowActive = true;
             $remainingSeconds = $durationSeconds;
         } else {
-            $elapsedSeconds = Carbon::now()->diffInSeconds($startedAt);
+            if ($startedAt === null) {
+                $attempt->update(['current_section_started_at' => Carbon::now()]);
+                $startedAt = $attempt->current_section_started_at;
+            }
+            $elapsedSeconds = Carbon::now()->diffInSeconds($startedAt, true);
             $remainingSeconds = max(0, $durationSeconds - $elapsedSeconds);
 
             // If time is up, auto-submit the section!
@@ -259,7 +292,7 @@ class StudentTestController extends Controller
             $attempt->test->sections()->pluck('id')
         )->count();
 
-        $recommendedLevel = ScoringService::getRecommendedLevel($score);
+        $recommendedLevel = ScoringService::getRecommendedLevel($score, $attempt->test);
 
         $attempt->update([
             'score' => $score,
@@ -304,5 +337,89 @@ class StudentTestController extends Controller
     {
         $attempt->load('test');
         return view('student.result', compact('attempt'));
+    }
+
+    /**
+     * Securely increment the play count of an audio track (limit of 2).
+     */
+    public function incrementAudioPlayCount(Request $request, StudentAttempt $attempt)
+    {
+        if (session('active_attempt_id') !== $attempt->id) {
+            return response()->json(['error' => 'Unauthorized attempt access.'], 403);
+        }
+
+        if ($attempt->status === 'completed') {
+            return response()->json(['error' => 'Test is already completed.'], 400);
+        }
+
+        $track = $request->input('track');
+        if (!$track) {
+            return response()->json(['error' => 'Track identifier required.'], 400);
+        }
+
+        $audioPlays = $attempt->audio_plays ?? [];
+        $currentCount = $audioPlays[$track] ?? 0;
+
+        if ($currentCount >= 2) {
+            return response()->json([
+                'success' => false,
+                'error' => 'Max plays reached (2/2).',
+                'plays' => $currentCount
+            ]);
+        }
+
+        $newCount = $currentCount + 1;
+        $audioPlays[$track] = $newCount;
+        $attempt->update(['audio_plays' => $audioPlays]);
+
+        return response()->json([
+            'success' => true,
+            'plays' => $newCount
+        ]);
+    }
+
+    /**
+     * Save a single answer in real-time.
+     */
+    public function saveSingleAnswer(Request $request, StudentAttempt $attempt)
+    {
+        if (session('active_attempt_id') !== $attempt->id) {
+            return response()->json(['error' => 'Unauthorized attempt access.'], 403);
+        }
+
+        if ($attempt->status === 'completed') {
+            return response()->json(['error' => 'Test is already completed.'], 400);
+        }
+
+        $questionId = $request->input('question_id');
+        $optionId = $request->input('option_id');
+
+        if (!$questionId || !$optionId) {
+            return response()->json(['error' => 'Question and option identifiers required.'], 400);
+        }
+
+        $question = Question::find($questionId);
+        $option = QuestionOption::find($optionId);
+
+        if (!$question || !$option || $option->question_id != $question->id) {
+            return response()->json(['error' => 'Invalid question or option.'], 400);
+        }
+
+        // Check if correct
+        $isCorrect = $option->is_correct;
+
+        // Save or update response
+        StudentAnswer::updateOrCreate(
+            [
+                'student_attempt_id' => $attempt->id,
+                'question_id' => $questionId
+            ],
+            [
+                'question_option_id' => $optionId,
+                'is_correct' => $isCorrect,
+            ]
+        );
+
+        return response()->json(['success' => true]);
     }
 }

@@ -1,0 +1,85 @@
+=== PAGE 4 WITH COORDINATES ===
+ 117.2  775.6 : Placement test
+   0.0    0.0 : Placement test
+ 307.3  305.1 : 12
+  37.9  305.1 : 11
+ 307.3  512.5 : 10
+  40.6  512.5 : 9
+ 310.3  719.9 : 8
+  40.6  719.9 : 7
+ 391.0   22.2 : Academy Stars
+ 463.8   22.2 : Placement test
+ 303.8   10.2 : Photocopiable © Macmillan Publishers Limited 2017
+ 340.8  376.4 : A
+ 357.8  376.4 : tomatoes
+ 340.8  354.7 : B
+ 357.8  354.7 : coconuts
+ 437.6  376.4 : C
+ 454.7  376.4 : mangoes
+ 437.6  354.7 : D
+ 454.7  354.7 : pears
+  72.1  376.4 : A
+  89.1  376.4 : wardrobes
+  72.1  354.7 : B
+  89.1  354.7 : clocks
+ 168.9  376.4 : C
+ 186.0  376.4 : lamps
+ 168.9  354.7 : D
+ 186.0  354.7 : beds
+ 458.6  495.8 : I like
+ 458.6  464.8 : but I don’t like
+ 458.6  449.8 : bananas.
+ 180.4  501.1 : There are two
+ 180.4  470.1 : in the room.
+ 340.8  583.8 : A
+ 357.8  583.8 : does
+ 340.8  562.1 : B
+ 357.8  562.1 : are
+ 437.6  583.8 : C
+ 454.7  583.8 : do
+ 437.6  562.1 : D
+ 454.7  562.1 : is
+ 488.4  668.1 : A black
+ 488.4  653.1 : skirt and a
+ 488.4  638.1 : white shirt.
+  73.1  583.8 : A
+  90.1  583.8 : eyes
+  73.1  562.1 : B
+  90.1  562.1 : tails
+ 169.9  583.8 : C
+ 186.9  583.8 : arms
+ 169.9  562.1 : D
+ 186.9  562.1 : legs
+ 185.2  703.2 : My rabbits
+ 185.2  688.2 : have got small
+ 185.2  673.2 : feet, long
+ 185.2  658.2 : ears and two
+ 269.9  642.2 : .
+ 545.6   14.4 : 3
+ 319.0  692.8 : What
+ 319.0  661.8 : you wear
+ 319.0  646.8 : to school?
+ 416.3  474.2 : ✓
+ 352.5  413.4 : ✗
+ 451.1  288.4 : We
+ 451.1  257.4 : on Friday.
+ 181.4  288.4 : There are lots of
+ 181.4  257.4 : in Australia but
+ 181.4  242.4 : there aren’t any
+ 181.4  227.4 : pandas.
+ 321.3  169.6 : A
+ 338.3  169.6 : go to school
+ 321.3  148.0 : B
+ 338.3  148.0 : do gymnastics
+  73.1  169.6 : A
+  90.1  169.6 : bears
+  73.1  148.0 : B
+  90.1  148.0 : camels
+ 169.9  169.6 : C
+ 186.9  169.6 : wolves
+ 169.9  148.0 : D
+ 186.9  148.0 : kangaroos
+ 423.1  169.6 : C
+ 440.1  169.6 : play basketball
+ 423.1  148.0 : D
+ 440.1  148.0 : have a music lesson

@@ -16,6 +16,7 @@ class Question extends Model
         'situation',
         'question_text',
         'audio_path',
+        'image_path',
         'order',
     ];
 

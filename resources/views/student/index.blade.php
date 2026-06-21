@@ -57,45 +57,33 @@
 
         <!-- CTA Actions -->
         <div class="w-full">
-            @if($test)
-                @if($activeAttempt)
-                    <div class="flex flex-col space-y-4">
-                        @php
-                            $currentSection = \App\Models\TestSection::find($activeAttempt->current_section_id);
-                        @endphp
-                        @if($currentSection)
-                            <a href="{{ route('student.test.section', [$activeAttempt, $currentSection]) }}" 
-                               class="w-full inline-flex items-center justify-center gap-2 bg-brand-navy hover:bg-brand-navy-dark text-white font-bold py-4 px-6 rounded-xl shadow-md transition-all duration-200 cursor-pointer text-base">
-                                Resume Candidate's Exam
-                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                                </svg>
-                            </a>
-                        @endif
-                        
-                        <a href="{{ route('student.index', ['new_session' => 1]) }}" 
-                           class="w-full inline-flex items-center justify-center gap-2 bg-transparent text-slate-300 hover:bg-slate-800/40 border border-slate-800 font-bold py-4 px-6 rounded-xl transition-all duration-200 cursor-pointer text-base">
-                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+            @if($juniorTest || $seniorTest)
+                <div class="flex flex-col space-y-4">
+                    @if($juniorTest)
+                        <a href="{{ route('student.test.start', $juniorTest) }}" 
+                           class="w-full inline-flex items-center justify-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-extrabold py-4 px-6 rounded-xl shadow-lg transition-all hover:scale-102 duration-200 cursor-pointer text-base">
+                            Start Junior Test
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                             </svg>
-                            Start a Brand New Exam
                         </a>
-                    </div>
-                @else
-                    <a href="{{ route('student.test.start', $test) }}" 
-                       class="w-full inline-flex items-center justify-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-extrabold py-4.5 px-8 rounded-xl shadow-lg transition-all hover:scale-105 active:scale-95 duration-200 cursor-pointer text-lg">
-                        Start Placement Test
-                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                        </svg>
-                    </a>
-                @endif
+                    @endif
+                    
+                    @if($seniorTest)
+                        <a href="{{ route('student.test.start', $seniorTest) }}" 
+                           class="w-full inline-flex items-center justify-center gap-2 bg-brand-navy border border-brand-gold/40 text-white font-extrabold py-4 px-6 rounded-xl shadow-lg transition-all hover:scale-102 hover:border-brand-gold duration-200 cursor-pointer text-base">
+                            Start Senior Test
+                            <svg class="h-5 w-5 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                            </svg>
+                        </a>
+                    @endif
+                </div>
             @else
                 <div class="p-4 rounded-xl border border-slate-800 bg-[#0a0f24]">
                     <p class="text-sm font-semibold text-slate-200">No Active Evaluation Available</p>
                 </div>
             @endif
-        </div>
 
     </div>
 

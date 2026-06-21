@@ -21,12 +21,14 @@ class StudentAttempt extends Model
         'status',
         'current_section_id',
         'current_section_started_at',
+        'audio_plays',
     ];
 
     protected $casts = [
         'started_at' => 'datetime',
         'finished_at' => 'datetime',
         'current_section_started_at' => 'datetime',
+        'audio_plays' => 'array',
     ];
 
     /**

@@ -57,8 +57,18 @@
 
         <!-- CTA Actions -->
         <div class="w-full">
-            @if($juniorTest || $seniorTest)
+            @if($childrenTest || $juniorTest || $seniorTest)
                 <div class="flex flex-col space-y-4">
+                    @if($childrenTest)
+                        <a href="{{ route('student.test.start', $childrenTest) }}" 
+                           class="w-full inline-flex items-center justify-center gap-2 bg-brand-gold-light border border-brand-gold/30 text-brand-text-dark font-extrabold py-4 px-6 rounded-xl shadow-lg transition-all hover:scale-102 hover:opacity-95 duration-200 cursor-pointer text-base">
+                            Start Children Test
+                            <svg class="h-5 w-5 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                            </svg>
+                        </a>
+                    @endif
+
                     @if($juniorTest)
                         <a href="{{ route('student.test.start', $juniorTest) }}" 
                            class="w-full inline-flex items-center justify-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-extrabold py-4 px-6 rounded-xl shadow-lg transition-all hover:scale-102 duration-200 cursor-pointer text-base">

@@ -32,7 +32,7 @@
             <div class="flex items-center justify-between text-brand-text-muted/70">
                 <span class="text-xs uppercase tracking-wider font-semibold">Total Tests</span>
                 <svg class="h-5 w-5 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.375c1.08 0 1.958-.87 1.958-1.944 0-1.074-.877-1.944-1.958-1.944H9.75M9 9.75h.008v.008H9V9.75Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
                 </svg>
             </div>
             <div class="mt-2 flex items-baseline gap-2">
@@ -45,7 +45,7 @@
             <div class="flex items-center justify-between text-brand-text-muted/70">
                 <span class="text-xs uppercase tracking-wider font-semibold">Total Candidates</span>
                 <svg class="h-5 w-5 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.109A12.018 12.018 0 0 1 12 21c-1.2 0-2.342-.176-3.418-.503V19.13c0-1.113.285-2.16.786-3.07M15 19.128v.11a11.94 11.94 0 0 1-6 0v-.11c0-1.113-.285-2.16-.786-3.07M8.586 16.06c.712-.39 1.547-.61 2.414-.61.867 0 1.702.22 2.414.61M12 11.25a3.375 3.375 0 1 0 0-6.75 3.375 3.375 0 0 0 0 6.75Zm6.621-2.484a2.25 2.25 0 1 0-3.372-2.969 2.25 2.25 0 0 0 3.372 2.97Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                 </svg>
             </div>
             <div class="mt-2 flex items-baseline gap-2">
@@ -57,9 +57,9 @@
         <div class="bg-brand-card rounded-2xl border border-brand-border p-5 shadow-sm border-t-2 border-brand-gold">
             <div class="flex items-center justify-between text-brand-text-muted/70">
                 <span class="text-xs uppercase tracking-wider font-semibold">Completed Exams</span>
-                <span class="inline-flex items-center rounded-full bg-emerald-50 dark:bg-emerald-950/40 px-1.5 py-0.5 text-2xs font-semibold text-emerald-700 dark:text-emerald-350 ring-1 ring-inset ring-emerald-600/20 shadow-3xs">
-                    {{ $stats['completed_attempts'] }}
-                </span>
+                <svg class="h-5 w-5 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
             </div>
             <div class="mt-2 flex items-baseline gap-2">
                 <span class="text-3xl font-extrabold text-brand-text-dark leading-none">{{ $stats['completed_attempts'] }}</span>

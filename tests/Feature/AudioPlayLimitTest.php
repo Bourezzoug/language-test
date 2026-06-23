@@ -120,4 +120,34 @@ class AudioPlayLimitTest extends TestCase
         $attempt->refresh();
         $this->assertEquals(2, $attempt->audio_plays['track_1']);
     }
+
+    public function test_audio_play_increment_does_not_cap_for_track_3(): void
+    {
+        $test = Test::first();
+        $attempt = StudentAttempt::create([
+            'test_id' => $test->id,
+            'full_name' => 'John Doe',
+            'score' => 0,
+            'total_questions' => 0,
+            'started_at' => now(),
+            'status' => 'in_progress',
+            'audio_plays' => ['track_3' => 2]
+        ]);
+
+        // Attempt playing 3rd time for track_3
+        $response = $this->withSession(['active_attempt_id' => $attempt->id])
+            ->postJson(route('student.test.audio-play', $attempt), [
+                'track' => 'track_3'
+            ]);
+
+        $response->assertStatus(200);
+        $response->assertJson([
+            'success' => true,
+            'plays' => 3
+        ]);
+
+        $attempt->refresh();
+        $this->assertEquals(3, $attempt->audio_plays['track_3']);
+    }
 }
+

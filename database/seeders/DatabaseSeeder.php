@@ -28,23 +28,23 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        // 2. Seed English Placement Test
+        // 2. Seed English Placement Test (Junior Placement Test - EVOLVE)
         $test = Test::create([
-            'title' => 'English Placement Test - EVOLVE',
+            'title' => 'Junior Placement Test - EVOLVE',
             'description' => 'Official Evolve English language placement test covering Listening, Reading comprehension, and Language Use.',
             'is_active' => true,
             'show_result_to_student' => true,
         ]);
 
         // ==========================================
-        // SECTION 1: LISTENING (20 Items, 15 Minutes)
+        // SECTION 1: LISTENING (20 Items, 30 Minutes)
         // ==========================================
         $listening = TestSection::create([
             'test_id' => $test->id,
             'title' => 'Section I: Listening',
             'type' => 'listening',
-            'duration_minutes' => 15,
-            'instructions' => 'In Section I: Listening, you will hear nine conversations and complete one or more items about each one. Before you listen to a conversation, read the situation and the following item or items. Then listen to the conversation. Complete the items after the conversation ends. Choose the correct answer for each item, and fill in your choice. You will hear the conversation only once. The first conversation is an example. There are 20 items, and you have 15 minutes to complete this section.',
+            'duration_minutes' => 30,
+            'instructions' => 'In Section I: Listening, you will hear nine conversations and complete one or more items about each one. Before you listen to a conversation, read the situation and the following item or items. Then listen to the conversation. Complete the items after the conversation ends. Choose the correct answer for each item, and fill in your choice. You will hear the conversation only once. The first conversation is an example. There are 20 items, and you have 30 minutes to complete this section.',
             'order' => 1,
         ]);
 
@@ -579,181 +579,181 @@ class DatabaseSeeder extends Seeder
         $langQuestions = [
             [
                 'num' => 41,
-                'text' => 'My daughter sometimes to school with her friends.',
+                'text' => 'My daughter sometimes ...... to school with her friends.',
                 'options' => ['a' => 'walk', 'b' => 'walks', 'c' => 'walking', 'd' => 'not walk'],
                 'correct' => 'b'
             ],
             [
                 'num' => 42,
-                'text' => 'eat dinner on Sundays?',
+                'text' => '...... eat dinner on Sundays?',
                 'options' => ['a' => 'Where your family', 'b' => 'How is your family', 'c' => 'When your family do', 'd' => 'What time does your family'],
                 'correct' => 'd'
             ],
             [
                 'num' => 43,
-                'text' => 'a lot of people in the park today.',
+                'text' => '...... a lot of people in the park today.',
                 'options' => ['a' => 'There', 'b' => 'There’s', 'c' => 'There are', 'd' => 'There is no'],
                 'correct' => 'c'
             ],
             [
                 'num' => 44,
-                'text' => ', but I’m not very good.',
+                'text' => '......, but I’m not very good.',
                 'options' => ['a' => 'I can play the guitar', 'b' => 'I don’t play the guitar', 'c' => 'I play the guitar very well', 'd' => 'I can’t play the guitar well'],
                 'correct' => 'a'
             ],
             [
                 'num' => 45,
-                'text' => 'We had a nice vacation. The weather beautiful.',
+                'text' => 'We had a nice vacation. The weather ...... beautiful.',
                 'options' => ['a' => 'did', 'b' => 'was', 'c' => 'does', 'd' => 'were'],
                 'correct' => 'b'
             ],
             [
                 'num' => 46,
-                'text' => 'Tom home right now. He’s still at the office.',
+                'text' => 'Tom ...... home right now. He’s still at the office.',
                 'options' => ['a' => 'isn’t driving', 'b' => 'doesn’t drive', 'c' => 'didn’t drive', 'd' => 'drives'],
                 'correct' => 'a'
             ],
             [
                 'num' => 47,
-                'text' => 'Is it true? a grandparent yesterday?',
+                'text' => 'Is it true? ...... a grandparent yesterday?',
                 'options' => ['a' => 'Are you becoming', 'b' => 'Does she become', 'c' => 'Did he become', 'd' => 'They became'],
                 'correct' => 'c'
             ],
             [
                 'num' => 48,
-                'text' => 'I go to the gym evenings. I only don’t go on the weekend.',
+                'text' => 'I go to the gym ...... evenings. I only don’t go on the weekend.',
                 'options' => ['a' => 'some', 'b' => 'most', 'c' => 'all of the', 'd' => 'many of the'],
                 'correct' => 'b'
             ],
             [
                 'num' => 49,
-                'text' => 'Susan’s cousin is player on our soccer team.',
+                'text' => 'Susan’s cousin is ...... player on our soccer team.',
                 'options' => ['a' => 'bad', 'b' => 'best', 'c' => 'worse', 'd' => 'the worst'],
                 'correct' => 'd'
             ],
             [
                 'num' => 50,
-                'text' => 'Our neighbor the screen of his phone twice last year.',
+                'text' => 'Our neighbor ...... the screen of his phone twice last year.',
                 'options' => ['a' => 'breaks', 'b' => 'is breaking', 'c' => 'has broken', 'd' => 'broke'],
                 'correct' => 'd'
             ],
             [
                 'num' => 51,
-                'text' => 'A: I can’t forget to make a reservation at the restaurant before noon. B: Don’t worry. you.',
+                'text' => 'A: I can’t forget to make a reservation at the restaurant before noon. B: Don’t worry. ...... you.',
                 'options' => ['a' => 'I’m reminding', 'b' => 'I’ve reminded', 'c' => 'I’ll remind', 'd' => 'I remind'],
                 'correct' => 'c'
             ],
             [
                 'num' => 52,
-                'text' => 'We for a hotel when the storm began.',
+                'text' => 'We ...... for a hotel when the storm began.',
                 'options' => ['a' => 'search', 'b' => 'will search', 'c' => 'have searched', 'd' => 'were searching'],
                 'correct' => 'd'
             ],
             [
                 'num' => 53,
-                'text' => 'If you concentrate on your work, you usually waste a lot of time.',
+                'text' => 'If you concentrate on your work, you ...... usually waste a lot of time.',
                 'options' => ['a' => 'don’t', 'b' => 'won’t', 'c' => 'didn’t', 'd' => 'couldn’t'],
                 'correct' => 'a'
             ],
             [
                 'num' => 54,
-                'text' => 'I’m exhausted. to fix this machine since I got here this morning.',
+                'text' => 'I’m exhausted. ...... to fix this machine since I got here this morning.',
                 'options' => ['a' => 'I try', 'b' => 'I’ll try', 'c' => 'I tried', 'd' => 'I’ve been trying'],
                 'correct' => 'd'
             ],
             [
                 'num' => 55,
-                'text' => 'Several bridges during the earthquake last year.',
+                'text' => 'Several bridges ...... during the earthquake last year.',
                 'options' => ['a' => 'badly damaged', 'b' => 'were badly damaged', 'c' => 'have badly damaged', 'd' => 'were badly damaging'],
                 'correct' => 'b'
             ],
             [
                 'num' => 56,
-                'text' => 'The agency that our ideas for the poster seem a little old-fashioned.',
+                'text' => 'The agency ...... that our ideas for the poster seem a little old-fashioned.',
                 'options' => ['a' => 'believes', 'b' => 'is believing', 'c' => 'was believed', 'd' => 'has been believing'],
                 'correct' => 'a'
             ],
             [
                 'num' => 57,
-                'text' => 'Superhero movies are a kind of entertainment really attracted to.',
+                'text' => 'Superhero movies are a kind of entertainment ...... really attracted to.',
                 'options' => ['a' => 'which', 'b' => 'I’m not', 'c' => 'who they', 'd' => 'that aren’t'],
                 'correct' => 'b'
             ],
             [
                 'num' => 58,
-                'text' => 'More support to groups dealing with environmental issues.',
+                'text' => 'More support ...... to groups dealing with environmental issues.',
                 'options' => ['a' => 'is providing', 'b' => 'might provide', 'c' => 'must be provided', 'd' => 'should be providing'],
                 'correct' => 'c'
             ],
             [
                 'num' => 59,
-                'text' => 'Employees show their ID cards, or they couldn’t have access to the research facilities.',
+                'text' => 'Employees ...... show their ID cards, or they couldn’t have access to the research facilities.',
                 'options' => ['a' => 'were required to', 'b' => 'were allowed to', 'c' => 'didn’t have to', 'd' => 'could'],
                 'correct' => 'a'
             ],
             [
                 'num' => 60,
-                'text' => 'Our math teacher made a hundred math problems in one hour.',
+                'text' => 'Our math teacher made ...... a hundred math problems in one hour.',
                 'options' => ['a' => 'us to solve', 'b' => 'be solved', 'c' => 'us solve', 'd' => 'solve'],
                 'correct' => 'c'
             ],
             [
                 'num' => 61,
-                'text' => 'The process be very time-consuming before they launched the new system.',
+                'text' => 'The process ...... be very time-consuming before they launched the new system.',
                 'options' => ['a' => 'might', 'b' => 'would', 'c' => 'ought to', 'd' => 'used to'],
                 'correct' => 'd'
             ],
             [
                 'num' => 62,
-                'text' => 'After some time together, those on John’s team learned not to underestimate .',
+                'text' => 'After some time together, those on John’s team learned not to underestimate ...... .',
                 'options' => ['a' => 'each other', 'b' => 'himself', 'c' => 'another', 'd' => 'itself'],
                 'correct' => 'a'
             ],
             [
                 'num' => 63,
-                'text' => 'The man next door asked me keep an eye on his apartment while he was away.',
+                'text' => 'The man next door asked me ...... keep an eye on his apartment while he was away.',
                 'options' => ['a' => 'I can', 'b' => 'would I', 'c' => 'if I could', 'd' => 'whether will I'],
                 'correct' => 'c'
             ],
             [
                 'num' => 64,
-                'text' => 'Our niece is very hardworking and determined. She has never had any trouble her exams.',
+                'text' => 'Our niece is very hardworking and determined. She has never had any trouble ...... her exams.',
                 'options' => ['a' => 'to pass', 'b' => 'passing', 'c' => 'passed', 'd' => 'pass'],
                 'correct' => 'b'
             ],
             [
                 'num' => 65,
-                'text' => 'If they the damage more carefully, they would have found these other problems.',
+                'text' => 'If they ...... the damage more carefully, they would have found these other problems.',
                 'options' => ['a' => 'would assess', 'b' => 'had assessed', 'c' => 'have assessed', 'd' => 'would have assessed'],
                 'correct' => 'b'
             ],
             [
                 'num' => 66,
-                'text' => 'By this time next Monday, a new head of the sales department.',
+                'text' => 'By this time next Monday, ...... a new head of the sales department.',
                 'options' => ['a' => 'we hire', 'b' => 'we’re hiring', 'c' => 'we’ll have hired', 'd' => 'we have been hiring'],
                 'correct' => 'c'
             ],
             [
                 'num' => 67,
-                'text' => 'The consultants proposed a number of alternatives, the firm disregarded.',
+                'text' => 'The consultants proposed a number of alternatives, ...... the firm disregarded.',
                 'options' => ['a' => 'much of what', 'b' => 'many of which', 'c' => 'some of whom', 'd' => 'none of whose'],
                 'correct' => 'b'
             ],
             [
                 'num' => 68,
-                'text' => 'What a couple of relaxing days at an unspoiled beach.',
+                'text' => 'What ...... a couple of relaxing days at an unspoiled beach.',
                 'options' => ['a' => 'they actually plan', 'b' => 'did they actually plan', 'c' => 'they actually planned was', 'd' => 'have they actually planned are'],
                 'correct' => 'c'
             ],
             [
                 'num' => 69,
-                'text' => 'We felt genuinely shocked. Never again at such an overrated place.',
+                'text' => 'We felt genuinely shocked. Never again ...... at such an overrated place.',
                 'options' => ['a' => 'ate we', 'b' => 'we will eat', 'c' => 'did eat we', 'd' => 'would we eat'],
                 'correct' => 'c'
             ],
             [
                 'num' => 70,
-                'text' => 'Authorities recommend that everyone the highway until repairs are completed.',
+                'text' => 'Authorities recommend that everyone ...... the highway until repairs are completed.',
                 'options' => ['a' => 'avoid', 'b' => 'avoided', 'c' => 'would avoid', 'd' => 'is going to avoid'],
                 'correct' => 'a'
             ],
@@ -779,10 +779,10 @@ class DatabaseSeeder extends Seeder
         }
 
         // ==========================================================================
-        // TEST 2: JUNIOR PLACEMENT TEST (Academy Stars - 60 Questions, No Audio)
+        // TEST 2: CHILDREN PLACEMENT TEST (Academy Stars - 60 Questions, No Audio)
         // ==========================================================================
         $juniorTest = Test::create([
-            'title' => 'Junior Placement Test - Academy Stars',
+            'title' => 'Children Placement Test - Academy Stars',
             'description' => 'Official Academy Stars English language placement evaluation for younger learners.',
             'is_active' => true,
             'show_result_to_student' => true,
@@ -1227,7 +1227,7 @@ class DatabaseSeeder extends Seeder
         $seniorQuestions = [
     [
         'num' => 1,
-        'text' => 'Manager:  Where’s Mr Davidson? Assistant:  Oh, he’s   London today.',
+        'text' => 'Manager:  Where’s Mr Davidson? Assistant:  Oh, he’s ...... London today.',
         'options' => [
             'a' => 'in',
             'b' => 'on',
@@ -1238,7 +1238,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 2,
-        'text' => 'Amirah:  Do you like cats? Chris:  No, but there   lots of other animals I like.',
+        'text' => 'Amirah:  Do you like cats? Chris:  No, but there ...... lots of other animals I like.',
         'options' => [
             'a' => 'is',
             'b' => 'be',
@@ -1249,7 +1249,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 3,
-        'text' => 'Andrew:  Where   Alicia come from? Martin:  I think she’s from the United States.',
+        'text' => 'Andrew:  Where ...... Alicia come from? Martin:  I think she’s from the United States.',
         'options' => [
             'a' => 'is',
             'b' => 'do',
@@ -1260,7 +1260,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 4,
-        'text' => 'Teacher:  Tell me something about your parents, Lucas. Student:  My mother and father   both very tall.',
+        'text' => 'Teacher:  Tell me something about your parents, Lucas. Student:  My mother and father ...... both very tall.',
         'options' => [
             'a' => 'is',
             'b' => 'isn’t',
@@ -1271,7 +1271,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 5,
-        'text' => 'Ayla:  That’s a nice table, Sophie! Is it new? Sophie:  Oh no, it’s my   old dining table.',
+        'text' => 'Ayla:  That’s a nice table, Sophie! Is it new? Sophie:  Oh no, it’s my ...... old dining table.',
         'options' => [
             'a' => 'mother',
             'b' => 'mothers',
@@ -1282,7 +1282,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 6,
-        'text' => 'Emma: What do you do after school? Chloe:  I see my friends. Do you visit people, too? Emma:  No, I   go out.',
+        'text' => 'Emma: What do you do after school? Chloe:  I see my friends. Do you visit people, too? Emma:  No, I ...... go out.',
         'options' => [
             'a' => 'often',
             'b' => 'never',
@@ -1293,7 +1293,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 7,
-        'text' => 'Katie:  Is Charlotte at school today? Laura:  No, she   . She’s not well today.',
+        'text' => 'Katie:  Is Charlotte at school today? Laura:  No, she ...... . She’s not well today.',
         'options' => [
             'a' => 'isn’t',
             'b' => 'aren’t',
@@ -1304,7 +1304,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 8,
-        'text' => 'Alex:  I’d like to make a cake.   eggs have we got? Andrea:  Three, I think. Let me check.',
+        'text' => 'Alex:  I’d like to make a cake. ...... eggs have we got? Andrea:  Three, I think. Let me check.',
         'options' => [
             'a' => 'How big',
             'b' => 'How much',
@@ -1315,7 +1315,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 9,
-        'text' => 'Ifrah:  Which bus goes to the hospital? Antonia:    the 236. It stops outside.',
+        'text' => 'Ifrah:  Which bus goes to the hospital? Antonia:  ...... the 236. It stops outside.',
         'options' => [
             'a' => 'Get',
             'b' => 'Got',
@@ -1326,7 +1326,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 10,
-        'text' => 'Father:  Are we ready to go? Daughter:  No, Mum can’t find   hat.',
+        'text' => 'Father:  Are we ready to go? Daughter:  No, Mum can’t find ...... hat.',
         'options' => [
             'a' => 'its',
             'b' => 'his',
@@ -1337,7 +1337,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 11,
-        'text' => 'Shop  Assistant: Can I help you? Customer:  Yes, I’d like to buy   trousers.',
+        'text' => 'Shop  Assistant: Can I help you? Customer:  Yes, I’d like to buy ...... trousers.',
         'options' => [
             'a' => 'a',
             'b' => 'an',
@@ -1348,7 +1348,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 12,
-        'text' => 'Mother:  Where’s that fish I bought? It was on the table. Daughter:  Oh no! The cat   it.',
+        'text' => 'Mother:  Where’s that fish I bought? It was on the table. Daughter:  Oh no! The cat ...... it.',
         'options' => [
             'a' => 'eat',
             'b' => 'eats',
@@ -1359,7 +1359,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 13,
-        'text' => 'Amanda:  I like your new sofa. Fahima:   Thanks. It’s   comfortable than the other one we had.',
+        'text' => 'Amanda:  I like your new sofa. Fahima:   Thanks. It’s ...... comfortable than the other one we had.',
         'options' => [
             'a' => 'too',
             'b' => 'very',
@@ -1370,7 +1370,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 14,
-        'text' => 'Alicia:  I’m going to the supermarket. Do you want anything? Peter:  Could you get   milk, please?',
+        'text' => 'Alicia:  I’m going to the supermarket. Do you want anything? Peter:  Could you get ...... milk, please?',
         'options' => [
             'a' => 'a',
             'b' => 'any',
@@ -1381,7 +1381,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 15,
-        'text' => 'Karina:  When do you want to play football? Aniqa:   I   to play tomorrow, because I don’t need to go to work.',
+        'text' => 'Karina:  When do you want to play football? Aniqa:   I ...... to play tomorrow, because I don’t need to go to work.',
         'options' => [
             'a' => 'like',
             'b' => 'likes',
@@ -1392,7 +1392,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 16,
-        'text' => 'Manisha:  What did you do at the weekend? Nicola:  I   tennis with my friend on Saturday.',
+        'text' => 'Manisha:  What did you do at the weekend? Nicola:  I ...... tennis with my friend on Saturday.',
         'options' => [
             'a' => 'play',
             'b' => 'played',
@@ -1403,7 +1403,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 17,
-        'text' => 'Wife:  Have we got any cheese in the fridge? Husband:   No, we haven’t. I’m   buy some this afternoon.',
+        'text' => 'Wife:  Have we got any cheese in the fridge? Husband:   No, we haven’t. I’m ...... buy some this afternoon.',
         'options' => [
             'a' => 'go',
             'b' => 'go to',
@@ -1414,7 +1414,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 18,
-        'text' => 'Laura:   Where   you last Tuesday? I tried to phone you. Beatriz:   Oh, I was visiting my grandmother. I didn’t have my phone with me.',
+        'text' => 'Laura:   Where ...... you last Tuesday? I tried to phone you. Beatriz:   Oh, I was visiting my grandmother. I didn’t have my phone with me.',
         'options' => [
             'a' => 'were',
             'b' => 'was',
@@ -1425,7 +1425,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 19,
-        'text' => 'Miriam:  Are you coming to my party on Tuesday? Brian:   I’m really sorry, but I   to take my daughter to the airport.',
+        'text' => 'Miriam:  Are you coming to my party on Tuesday? Brian:   I’m really sorry, but I ...... to take my daughter to the airport.',
         'options' => [
             'a' => 'has',
             'b' => 'had',
@@ -1436,7 +1436,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 20,
-        'text' => 'Saif:  Why do you like running? Isabella:  Because it’s   way to keep fit.',
+        'text' => 'Saif:  Why do you like running? Isabella:  Because it’s ...... way to keep fit.',
         'options' => [
             'a' => 'best',
             'b' => 'better',
@@ -1447,7 +1447,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 21,
-        'text' => 'Anna:  Have you lived here a long time? Stefan:   Yes, over 40 years. I know   of people in this town.',
+        'text' => 'Anna:  Have you lived here a long time? Stefan:   Yes, over 40 years. I know ...... of people in this town.',
         'options' => [
             'a' => 'any',
             'b' => 'lots',
@@ -1458,7 +1458,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 22,
-        'text' => 'Josef:  Why didn’t you come to the cinema last week? Chloe:   I wanted to but I couldn’t. I   studying for that test we had on Monday.',
+        'text' => 'Josef:  Why didn’t you come to the cinema last week? Chloe:   I wanted to but I couldn’t. I ...... studying for that test we had on Monday.',
         'options' => [
             'a' => 'was',
             'b' => 'were',
@@ -1469,7 +1469,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 23,
-        'text' => 'Anna: That bird’s on the garden table again. I think it’s hungry. Juliana:  Yes, look! It   eat the bread we put there.',
+        'text' => 'Anna: That bird’s on the garden table again. I think it’s hungry. Juliana:  Yes, look! It ...... eat the bread we put there.',
         'options' => [
             'a' => 'is',
             'b' => 'will',
@@ -1480,7 +1480,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 24,
-        'text' => 'Sophie:  How long   married? Ying  Yue:  Two years. I met my husband when I was working in New York.',
+        'text' => 'Sophie:  How long ...... married? Ying  Yue:  Two years. I met my husband when I was working in New York.',
         'options' => [
             'a' => 'had you got',
             'b' => 'did you get',
@@ -1491,7 +1491,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 25,
-        'text' => 'David:  Have you   that new film yet? Susanna:  No, I haven’t. We could go on Thursday if you like?',
+        'text' => 'David:  Have you ...... that new film yet? Susanna:  No, I haven’t. We could go on Thursday if you like?',
         'options' => [
             'a' => 'see',
             'b' => 'saw',
@@ -1502,7 +1502,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 26,
-        'text' => 'Shop  Assistant: Excuse me, please. Could I get past? Customer:  Oh, I’m sorry. I’m getting in the way,    I?',
+        'text' => 'Shop  Assistant: Excuse me, please. Could I get past? Customer:  Oh, I’m sorry. I’m getting in the way, ...... I?',
         'options' => [
             'a' => 'don’t',
             'b' => 'aren’t',
@@ -1513,7 +1513,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 27,
-        'text' => 'Wife:   Advertising is a big business for musicians. Husband:   Yes, musicians   a lot of money for writing short pieces of music.',
+        'text' => 'Wife:   Advertising is a big business for musicians. Husband:   Yes, musicians ...... a lot of money for writing short pieces of music.',
         'options' => [
             'a' => 'pay',
             'b' => 'paid',
@@ -1524,7 +1524,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 28,
-        'text' => 'Son:  Mum, I’d really like a guitar. Can I have one? Mother:   OK, but if we buy one you   have to practise playing it.',
+        'text' => 'Son:  Mum, I’d really like a guitar. Can I have one? Mother:   OK, but if we buy one you ...... have to practise playing it.',
         'options' => [
             'a' => 'will',
             'b' => 'can',
@@ -1535,7 +1535,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 29,
-        'text' => 'Juliana:  Do you like Brazilian coffee? Miriodere:  No I don’t, because it’s   strong.',
+        'text' => 'Juliana:  Do you like Brazilian coffee? Miriodere:  No I don’t, because it’s ...... strong.',
         'options' => [
             'a' => 'too',
             'b' => 'such',
@@ -1546,7 +1546,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 30,
-        'text' => 'Matthew:  Would you like anything from the shop? Alicia:   Yes, I’d like one of   celebrity magazines, please.',
+        'text' => 'Matthew:  Would you like anything from the shop? Alicia:   Yes, I’d like one of ...... celebrity magazines, please.',
         'options' => [
             'a' => 'most recent',
             'b' => 'more recent',
@@ -1557,7 +1557,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 31,
-        'text' => 'Daughter:   Mum, my computer is broken again. I really need a new one. Mother:   I   buy one if we had the money, but it’s not possible right now.',
+        'text' => 'Daughter:   Mum, my computer is broken again. I really need a new one. Mother:   I ...... buy one if we had the money, but it’s not possible right now.',
         'options' => [
             'a' => 'will',
             'b' => 'may',
@@ -1568,7 +1568,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 32,
-        'text' => 'Mother:     you packed your suitcase yet? We’re leaving early tomorrow morning. Son:  I’ll do it later. It won’t take long.',
+        'text' => 'Mother:  ...... you packed your suitcase yet? We’re leaving early tomorrow morning. Son:  I’ll do it later. It won’t take long.',
         'options' => [
             'a' => 'Did',
             'b' => 'Have',
@@ -1579,7 +1579,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 33,
-        'text' => 'Lucas:  Do you play the piano, Natasha? Natasha:   Well, I   play when I was younger, but I’m not sure I remember now.',
+        'text' => 'Lucas:  Do you play the piano, Natasha? Natasha:   Well, I ...... play when I was younger, but I’m not sure I remember now.',
         'options' => [
             'a' => 'can',
             'b' => 'can’t',
@@ -1590,7 +1590,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 34,
-        'text' => 'Martina:  What did the doctor say about your stomach pains? Padma:  He asked me what I   for the last two days.',
+        'text' => 'Martina:  What did the doctor say about your stomach pains? Padma:  He asked me what I ...... for the last two days.',
         'options' => [
             'a' => 'eat',
             'b' => 'had eaten',
@@ -1601,7 +1601,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 35,
-        'text' => 'Daughter:  Everyone has arrived apart from Pamela. Mother:   Don’t worry, she phoned me this morning and said she   be a bit late.',
+        'text' => 'Daughter:  Everyone has arrived apart from Pamela. Mother:   Don’t worry, she phoned me this morning and said she ...... be a bit late.',
         'options' => [
             'a' => 'can',
             'b' => 'must',
@@ -1612,7 +1612,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 36,
-        'text' => 'Vincent:   Did you see the weather forecast? It’s going to be extremely hot this weekend. Pauline:  I know, I can’t believe it! It   since Monday.',
+        'text' => 'Vincent:   Did you see the weather forecast? It’s going to be extremely hot this weekend. Pauline:  I know, I can’t believe it! It ...... since Monday.',
         'options' => [
             'a' => 'rains',
             'b' => 'has been raining',
@@ -1623,7 +1623,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 37,
-        'text' => 'Ameena:   What colour are you going to paint the living room? Charlotte:   I   probably choose something bright, like yellow.',
+        'text' => 'Ameena:   What colour are you going to paint the living room? Charlotte:   I ...... probably choose something bright, like yellow.',
         'options' => [
             'a' => 'will',
             'b' => 'may',
@@ -1634,7 +1634,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 38,
-        'text' => 'Victor:   I’d love to go back in history to see how people lived hundreds of years ago. Simon:   Me too! If I   choose, I’d probably travel to ancient Rome.',
+        'text' => 'Victor:   I’d love to go back in history to see how people lived hundreds of years ago. Simon:   Me too! If I ...... choose, I’d probably travel to ancient Rome.',
         'options' => [
             'a' => 'can',
             'b' => 'will',
@@ -1645,7 +1645,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 39,
-        'text' => 'Stephen:   The concert was fantastic yesterday. You have come. Yuuto:  I know. I wanted to, but I had to work late.',
+        'text' => 'Stephen:   The concert was fantastic yesterday. You ...... have come. Yuuto:  I know. I wanted to, but I had to work late.',
         'options' => [
             'a' => 'must',
             'b' => 'could',
@@ -1656,7 +1656,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 40,
-        'text' => 'Katie:  Would you like to go sightseeing or to the beach this afternoon? Matthew:  I don’t mind, I’ll let you decide. Katie:  OK, let’s go sightseeing,   we?',
+        'text' => 'Katie:  Would you like to go sightseeing or to the beach this afternoon? Matthew:  I don’t mind, I’ll let you decide. Katie:  OK, let’s go sightseeing, ...... we?',
         'options' => [
             'a' => 'should',
             'b' => 'shall',
@@ -1667,7 +1667,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 41,
-        'text' => 'Amanda:   It said on the news that the president also owns all the national newspapers. Andrew:  That   be right! I don’t think that’s true.',
+        'text' => 'Amanda:   It said on the news that the president also owns all the national newspapers. Andrew:  That ...... be right! I don’t think that’s true.',
         'options' => [
             'a' => 'must',
             'b' => 'can’t',
@@ -1678,7 +1678,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 42,
-        'text' => 'Assistant:   That meeting was really difficult. What would you have done if you   in my position? Manager:  Oh, I think you managed it very well.',
+        'text' => 'Assistant:   That meeting was really difficult. What would you have done if you ...... in my position? Manager:  Oh, I think you managed it very well.',
         'options' => [
             'a' => 'are',
             'b' => 'were',
@@ -1689,7 +1689,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 43,
-        'text' => 'Natalia:  My new smartphone doesn’t seem to work. Katie:   Oh dear! Perhaps you should take it   and ask for a refund.',
+        'text' => 'Natalia:  My new smartphone doesn’t seem to work. Katie:   Oh dear! Perhaps you should take it ...... and ask for a refund.',
         'options' => [
             'a' => 'up',
             'b' => 'out',
@@ -1700,7 +1700,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 44,
-        'text' => 'Chris:  I wish I could be with our cousins … Alison:   Me too! By this time tomorrow they   on a Greek beach while we’re revising for our history test.',
+        'text' => 'Chris:  I wish I could be with our cousins … Alison: ...... Me too! By this time tomorrow they ...... on a Greek beach while we’re revising for our history test.',
         'options' => [
             'a' => 'sunbathe',
             'b' => 'will sunbathe',
@@ -1711,7 +1711,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 45,
-        'text' => 'Son:  Are you OK, Mum? You don’t seem very relaxed. Mother:   I just wish I   an aisle seat so that I could get up and walk around more easily.',
+        'text' => 'Son:  Are you OK, Mum? You don’t seem very relaxed. Mother:   I just wish I ...... an aisle seat so that I could get up and walk around more easily.',
         'options' => [
             'a' => 'had chosen',
             'b' => 'have chosen',
@@ -1722,7 +1722,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 46,
-        'text' => 'Nicola:  I love this picture, but won’t it cost a fortune? Victor:   No, it’s just a copy. The original,   is a portrait of the artist’s friend, sold for €4 million!',
+        'text' => 'Nicola:  I love this picture, but won’t it cost a fortune? Victor:   No, it’s just a copy. The original, ...... is a portrait of the artist’s friend, sold for €4 million!',
         'options' => [
             'a' => 'whose',
             'b' => 'which',
@@ -1733,7 +1733,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 47,
-        'text' => 'Laura:  I can’t believe how talented this artist was. Emily:   I know, it’s amazing.   he was almost 90 when he did them, his paintings are beautiful.',
+        'text' => 'Laura:  I can’t believe how talented this artist was. Emily:   I know, it’s amazing. ...... he was almost 90 when he did them, his paintings are beautiful.',
         'options' => [
             'a' => 'Since',
             'b' => 'Besides',
@@ -1744,7 +1744,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 48,
-        'text' => 'Andrea:  I want to buy some new shoes for the winter. Shan:   Well, I   looking for a new pair of boots for weeks, but I can’t find anything I like.',
+        'text' => 'Andrea:  I want to buy some new shoes for the winter. Shan:   Well, I ...... looking for a new pair of boots for weeks, but I can’t find anything I like.',
         'options' => [
             'a' => 'am',
             'b' => 'was',
@@ -1755,7 +1755,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 49,
-        'text' => 'Client:  I don’t have much money – just enough to   . Accountant:   Well, let me suggest a way of helping you save more.',
+        'text' => 'Client:  I don’t have much money – just enough to ...... . Accountant:   Well, let me suggest a way of helping you save more.',
         'options' => [
             'a' => 'get by',
             'b' => 'pay off',
@@ -1766,7 +1766,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 50,
-        'text' => 'Pablo:  In April next year I   here for ten years exactly. Alison:  Wow! It really doesn’t seem that long.',
+        'text' => 'Pablo:  In April next year I ...... here for ten years exactly. Alison:  Wow! It really doesn’t seem that long.',
         'options' => [
             'a' => 'will live',
             'b' => 'will be living',
@@ -1777,7 +1777,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 51,
-        'text' => 'Student:   Is it true that it took Bell and Watson ages to invent the telephone? Teacher:   Yes. When they finally succeeded, they   on it for about 30 years.',
+        'text' => 'Student:   Is it true that it took Bell and Watson ages to invent the telephone? Teacher:   Yes. When they finally succeeded, they ...... on it for about 30 years.',
         'options' => [
             'a' => 'must work',
             'b' => 'had been working',
@@ -1788,7 +1788,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 52,
-        'text' => 'Rachel:  This would be a lovely place to sit on a dry day. Natasha:  Yes, I know. I just wish the rain   .',
+        'text' => 'Rachel:  This would be a lovely place to sit on a dry day. Natasha:  Yes, I know. I just wish the rain ...... .',
         'options' => [
             'a' => 'would stop',
             'b' => 'has stopped',
@@ -1799,7 +1799,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 53,
-        'text' => 'Student:  What’s today’s lesson going to be about? Teacher:   Today we’re going to learn about a tribe descendants live in Lima, the capital of Peru.',
+        'text' => 'Student:  What’s today’s lesson going to be about? Teacher:   Today we’re going to learn about a tribe ...... descendants live in Lima, the capital of Peru.',
         'options' => [
             'a' => 'who',
             'b' => 'which',
@@ -1810,7 +1810,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 54,
-        'text' => 'Andrea:  Did your town have a good market? Katie:   Yes. When I was young we   there every Saturday looking for bargains.',
+        'text' => 'Andrea:  Did your town have a good market? Katie:   Yes. When I was young we ...... there every Saturday looking for bargains.',
         'options' => [
             'a' => 'had gone',
             'b' => 'would go',
@@ -1821,7 +1821,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 55,
-        'text' => 'Daughter:   Joanna has been really supportive. I’m so lucky to have her as a friend. Mother:   Yes. Just think – if you hadn’t sat next to her in class at school, you   so close now.',
+        'text' => 'Daughter:   Joanna has been really supportive. I’m so lucky to have her as a friend. Mother:   Yes. Just think – if you hadn’t sat next to her in class at school, you ...... so close now.',
         'options' => [
             'a' => 'won’t be',
             'b' => 'wouldn’t be',
@@ -1832,7 +1832,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 56,
-        'text' => 'David:  Did you see the headline this evening? Nicola:  Yes – the Prime Minister was   to resign today.',
+        'text' => 'David:  Did you see the headline this evening? Nicola:  Yes – the Prime Minister was ...... to resign today.',
         'options' => [
             'a' => 'charged',
             'b' => 'argued',
@@ -1843,7 +1843,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 57,
-        'text' => 'Student:   I’m concerned about the chemical test results I’ve just had from the river. Professor:   It   be a good idea to check the acid levels as well then.',
+        'text' => 'Student:   I’m concerned about the chemical test results I’ve just had from the river. Professor:   It ...... be a good idea to check the acid levels as well then.',
         'options' => [
             'a' => 'must',
             'b' => 'should',
@@ -1854,7 +1854,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 58,
-        'text' => 'Aamir:   They’ve just announced that our train has been delayed. Laura:   That’s annoying. We   have rushed to get here after all.',
+        'text' => 'Aamir:   They’ve just announced that our train has been delayed. Laura:   That’s annoying. We ...... have rushed to get here after all.',
         'options' => [
             'a' => 'needn’t',
             'b' => 'could',
@@ -1865,7 +1865,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 59,
-        'text' => 'Liam:  So, your Dad’s got a laptop! Cian:   Yes, I bought it for him last year – until then he a typewriter!',
+        'text' => 'Liam:  So, your Dad’s got a laptop! Cian:   Yes, I bought it for him last year – until then he ...... a typewriter!',
         'options' => [
             'a' => 'used',
             'b' => 'has used',
@@ -1876,7 +1876,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 60,
-        'text' => 'Isabella:   The flight is fully booked, so I won’t be able to go to Barbados next week. Safia:  If you    the ticket sooner, you’d have found a seat.',
+        'text' => 'Isabella:   The flight is fully booked, so I won’t be able to go to Barbados next week. Safia:  If you ...... the ticket sooner, you’d have found a seat.',
         'options' => [
             'a' => 'had booked',
             'b' => 'were booking',
@@ -1887,7 +1887,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 61,
-        'text' => 'Receptionist:   You    taken a taxi to the hotel since you arrived so late. Customer:   It was OK, actually. There was a direct bus service from the airport.',
+        'text' => 'Receptionist:   You ...... taken a taxi to the hotel since you arrived so late. Customer:   It was OK, actually. There was a direct bus service from the airport.',
         'options' => [
             'a' => 'will have',
             'b' => 'should have',
@@ -1898,7 +1898,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 62,
-        'text' => 'Sophie:   Have they finished interviewing for the manager’s position yet? Rafi:  No, but they    all the candidates by next Friday.',
+        'text' => 'Sophie:   Have they finished interviewing for the manager’s position yet? Rafi:  No, but they ...... all the candidates by next Friday.',
         'options' => [
             'a' => 'won’t see',
             'b' => 'would see',
@@ -1909,7 +1909,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 63,
-        'text' => 'Athlete:    hard I try, I can’t run any faster. Coach:  You’ve improved a lot. I wouldn’t worry about it.',
+        'text' => 'Athlete:  ...... hard I try, I can’t run any faster. Coach:  You’ve improved a lot. I wouldn’t worry about it.',
         'options' => [
             'a' => 'Though',
             'b' => 'Whereas',
@@ -1920,7 +1920,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 64,
-        'text' => 'Laura:  That’s a really beautiful painting. The colours are so vivid. Jeremy:  Yes, it’s amazing to think it was lost for years and   .',
+        'text' => 'Laura:  That’s a really beautiful painting. The colours are so vivid. Jeremy:  Yes, it’s amazing to think it was lost for years and ...... .',
         'options' => [
             'a' => 'must be restored',
             'b' => 'had to be restored',
@@ -1931,7 +1931,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 65,
-        'text' => 'Charlotte:   I saw the photos from the film festival. Was that you with the actor from The Hobbit? Niall:   Yes, it was!   did I imagine I would ever actually meet him.',
+        'text' => 'Charlotte:   I saw the photos from the film festival. Was that you with the actor from The Hobbit? Niall:   Yes, it was! ...... did I imagine I would ever actually meet him.',
         'options' => [
             'a' => 'Not',
             'b' => 'Much',
@@ -1942,7 +1942,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 66,
-        'text' => 'Pauline:   I hear you got soaked on the golf course this morning. Chris:  Yes. I wish I   listened to the weather forecast.',
+        'text' => 'Pauline:   I hear you got soaked on the golf course this morning. Chris:  Yes. I wish I ...... listened to the weather forecast.',
         'options' => [
             'a' => 'had',
             'b' => 'have',
@@ -1953,7 +1953,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 67,
-        'text' => 'Laura:  How was the meeting? Ricardo:   It finished late because Victor didn’t arrive until 5 pm. He told me he   been given the wrong directions.',
+        'text' => 'Laura:  How was the meeting? Ricardo:   It finished late because Victor didn’t arrive until 5 pm. He told me he ...... been given the wrong directions.',
         'options' => [
             'a' => 'has',
             'b' => 'had',
@@ -1964,7 +1964,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 68,
-        'text' => 'Andrew:  I picked up some of that cat food you wanted. Pedro:   Oh good. Once   to these new cat biscuits, they won’t want to go back to the other stuff.',
+        'text' => 'Andrew:  I picked up some of that cat food you wanted. Pedro:   Oh good. Once ...... to these new cat biscuits, they won’t want to go back to the other stuff.',
         'options' => [
             'a' => 'we’ve switched',
             'b' => 'we’ll be switching',
@@ -1975,7 +1975,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 69,
-        'text' => 'Antonia:  Has your son done well in his exams? Phillip:   Yes. Only once   he wasn’t sufficiently prepared, but he can take that one again.',
+        'text' => 'Antonia:  Has your son done well in his exams? Phillip:   Yes. Only once ...... he wasn’t sufficiently prepared, but he can take that one again.',
         'options' => [
             'a' => 'he found',
             'b' => 'he has found',
@@ -1986,7 +1986,7 @@ class DatabaseSeeder extends Seeder
     ],
     [
         'num' => 70,
-        'text' => 'Son:  I had a bit of a stomach ache this morning. Mother:   Oh dear! Well, I did say you   eaten that chicken last night.',
+        'text' => 'Son:  I had a bit of a stomach ache this morning. Mother:   Oh dear! Well, I did say you ...... eaten that chicken last night.',
         'options' => [
             'a' => 'wouldn’t have',
             'b' => 'couldn’t have',
@@ -1994,13 +1994,6 @@ class DatabaseSeeder extends Seeder
             'd' => 'shouldn’t have',
         ],
         'correct' => 'd'
-    ],
-    [
-        'num' => 1,
-        'text' => 'A 11 D 21 B 31 D 41 B 51 B 61 B 2 C 12 C 22 A 32 B 42 C 52 A 62 D 3 D 13 D 23 D 33 C 43 D 53 C 63 C 4 C 14 C 24 C 34 B 44 C 54 B 64 B 5 C 15 D 25 C 35 D 45 A 55 B 65 D 6 B 16 B 26 B 36 B 46 B 56 D 66 A 7 A 17 D 27 C 37 A 47 C 57 C 67 B 8 C 18 A 28 A 38 C 48 D 58 A 68 A 9 A 19 C 29 A 39 D 49 A 59 D 69 C 10 C 20 C 30 C 40 B 50 D 60 A 70 D ',
-        'options' => [
-        ],
-        'correct' => 'a'
     ],
 ]
 ;

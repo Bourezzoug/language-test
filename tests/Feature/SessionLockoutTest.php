@@ -16,18 +16,48 @@ class SessionLockoutTest extends TestCase
     {
         parent::setUp();
 
-        // Seed a dummy active test and section
-        $test = Test::create([
-            'title' => 'Academy Stars Placement Test',
+        // 1. Seed Children Test (Academy Stars)
+        $childrenTest = Test::create([
+            'title' => 'Children Placement Test - Academy Stars',
+            'description' => 'Children Test',
+            'is_active' => true,
+        ]);
+
+        TestSection::create([
+            'test_id' => $childrenTest->id,
+            'title' => 'Written Section',
+            'type' => 'language_use',
+            'duration_minutes' => 45,
+            'order' => 1,
+        ]);
+
+        // 2. Seed Junior Test (EVOLVE)
+        $juniorTest = Test::create([
+            'title' => 'Junior Placement Test - EVOLVE',
             'description' => 'Junior Test',
             'is_active' => true,
         ]);
 
-        $section = TestSection::create([
-            'test_id' => $test->id,
+        TestSection::create([
+            'test_id' => $juniorTest->id,
             'title' => 'Listening Section',
             'type' => 'listening',
             'duration_minutes' => 15,
+            'order' => 1,
+        ]);
+
+        // 3. Seed Senior Test (Language Hub)
+        $seniorTest = Test::create([
+            'title' => 'Senior Placement Test - Language Hub',
+            'description' => 'Senior Test',
+            'is_active' => true,
+        ]);
+
+        TestSection::create([
+            'test_id' => $seniorTest->id,
+            'title' => 'Written Section',
+            'type' => 'language_use',
+            'duration_minutes' => 30,
             'order' => 1,
         ]);
     }
@@ -37,7 +67,9 @@ class SessionLockoutTest extends TestCase
         $response = $this->get(route('student.index'));
 
         $response->assertStatus(200);
+        $response->assertSee('Start Children Test');
         $response->assertSee('Start Junior Test');
+        $response->assertSee('Start Senior Test');
     }
 
     public function test_registration_page_shows_intake_form(): void

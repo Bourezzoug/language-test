@@ -40,20 +40,16 @@ class StudentTestController extends Controller
             }
         }
 
-        $juniorTest = Test::where('title', 'like', '%Academy Stars%')->where('is_active', true)->first();
+        $childrenTest = Test::where('title', 'like', '%Academy Stars%')->where('is_active', true)->first();
+        $juniorTest = Test::where('title', 'like', '%EVOLVE%')->where('is_active', true)->first();
         $seniorTest = Test::where('title', 'like', '%Language Hub%')->where('is_active', true)->first();
         
-        // Fallback to Evolve if Senior Test is not found
-        if (!$seniorTest) {
-            $seniorTest = Test::where('title', 'like', '%EVOLVE%')->where('is_active', true)->first();
-        }
-        
-        // Final fallback to first active test
-        if (!$juniorTest && !$seniorTest) {
-            $juniorTest = Test::where('is_active', true)->first();
+        // Final fallback to first active test if none found
+        if (!$childrenTest && !$juniorTest && !$seniorTest) {
+            $childrenTest = Test::where('is_active', true)->first();
         }
 
-        return view('student.index', compact('juniorTest', 'seniorTest'));
+        return view('student.index', compact('childrenTest', 'juniorTest', 'seniorTest'));
     }
 
     /**
@@ -360,7 +356,7 @@ class StudentTestController extends Controller
         $audioPlays = $attempt->audio_plays ?? [];
         $currentCount = $audioPlays[$track] ?? 0;
 
-        if ($currentCount >= 2) {
+        if ($track !== 'track_3' && $currentCount >= 2) {
             return response()->json([
                 'success' => false,
                 'error' => 'Max plays reached (2/2).',

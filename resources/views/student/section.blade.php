@@ -30,6 +30,7 @@
     if (count($allQuestionsInOrder) > 0 && $firstUnansweredIndex >= count($allQuestionsInOrder)) {
         $firstUnansweredIndex = count($allQuestionsInOrder) - 1;
     }
+    $hasListeningPassage = false;
 @endphp
 
 <style>
@@ -90,7 +91,7 @@
         </div>
         
         <!-- Middle: Compact Stepper -->
-        <nav class="hidden md:flex items-center gap-1 text-[11px] overflow-x-auto py-1">
+        <nav class="hidden md:flex items-center gap-1 text-[11px] overflow-hidden py-1">
             @foreach($sections as $index => $sec)
                 @php
                     $isCompleted = $sec->order < $section->order;
@@ -143,13 +144,13 @@
                 </div>
                 <div>
                     <h2 class="text-sm font-extrabold text-brand-text-dark">Required Preparation Audios</h2>
-                    <p class="text-[9px] uppercase tracking-widest text-brand-gold font-bold font-mono">Listen to all 3 audios to begin the quiz</p>
+                    <p class="text-[9px] uppercase tracking-widest text-brand-gold font-bold font-mono">Listen to all {{ $hasListeningPassage ? '3' : '2' }} audios to begin the quiz</p>
                 </div>
             </div>
 
             <!-- Notice box -->
             <div class="p-3 rounded-lg bg-brand-navy-dark/5 border border-brand-border text-brand-text-muted text-[11px] leading-relaxed font-medium shrink-0">
-                <span class="text-brand-gold font-bold">⚠️ PROTOCOL:</span> Listen to all three audios sequentially. Once Audio 3 ends, the <strong>Start Quiz</strong> button will activate. Playbacks are capped at <strong>2 opportunities per track</strong>.
+                <span class="text-brand-gold font-bold">⚠️ PROTOCOL:</span> Listen to all {{ $hasListeningPassage ? 'three' : 'two' }} audios sequentially. Once Audio {{ $hasListeningPassage ? '3' : '2' }} ends, the <strong>Start Quiz</strong> button will activate. Playbacks are capped at <strong>2 opportunities per track</strong>.
             </div>
 
             <div class="flex flex-col gap-3 overflow-y-auto pr-1 flex-grow">
@@ -198,6 +199,7 @@
                     </div>
                 </div>
 
+                @if($hasListeningPassage)
                 <!-- Audio 3 Step -->
                 <div id="audio-step-card-3" class="audio-step-card p-3 rounded-xl border border-brand-border bg-brand-card opacity-50 pointer-events-none transition-all">
                     <div class="flex items-center justify-between gap-3">
@@ -219,6 +221,7 @@
                         </audio>
                     </div>
                 </div>
+                @endif
 
             </div>
 
@@ -281,7 +284,7 @@
                         </span>
                         <div class="flex flex-col">
                             <span class="text-xs font-bold text-brand-text-dark leading-none">Listening Passage Audio</span>
-                            <span id="play-count-review" class="text-[10px] font-bold text-brand-gold mt-0.5">({{ $playCount3 }}/2 plays)</span>
+                            <span id="play-count-review" class="text-[10px] font-bold text-brand-gold mt-0.5">({{ $playCount3 }} plays)</span>
                         </div>
                     </div>
 
@@ -691,7 +694,7 @@
     const lockedTracks = {
         track_1: (playsData.track_1 || 0) >= 2,
         track_2: (playsData.track_2 || 0) >= 2,
-        track_3: (playsData.track_3 || 0) >= 2
+        track_3: false // Unlimited plays
     };
 
     function registerAudioTracking(trackKey, audioEl, countBadgeEl, onPlaySuccess) {
@@ -742,31 +745,39 @@
                     audioEl.dataset.started = 'true';
                     const plays = data.plays;
                     if (countBadgeEl) {
-                        countBadgeEl.innerText = `(${plays}/2 plays)`;
+                        if (trackKey === 'track_3') {
+                            countBadgeEl.innerText = `(${plays} plays)`;
+                        } else {
+                            countBadgeEl.innerText = `(${plays}/2 plays)`;
+                        }
                     }
                     if (trackKey === 'track_3') {
                         const otherBadge = document.getElementById(countBadgeEl.id === 'play-count-3' ? 'play-count-review' : 'play-count-3');
-                        if (otherBadge) otherBadge.innerText = `(${plays}/2 plays)`;
+                        if (otherBadge) otherBadge.innerText = `(${plays} plays)`;
                     }
 
-                    if (plays >= 2) {
+                    if (trackKey !== 'track_3' && plays >= 2) {
                         lockedTracks[trackKey] = true;
                     }
                     if (onPlaySuccess) onPlaySuccess(plays);
                 } else {
-                    audioEl.pause();
-                    audioEl.currentTime = 0;
-                    lockedTracks[trackKey] = true;
-                    const plays = data.plays || 2;
-                    if (countBadgeEl) {
-                        countBadgeEl.innerText = `(${plays}/2 plays)`;
+                    if (trackKey !== 'track_3') {
+                        audioEl.pause();
+                        audioEl.currentTime = 0;
+                        lockedTracks[trackKey] = true;
+                        const plays = data.plays || 2;
+                        if (countBadgeEl) {
+                            countBadgeEl.innerText = `(${plays}/2 plays)`;
+                        }
+                        lockAudioEl(trackKey, audioEl);
+                        alert("This audio track has reached the maximum limit of 2 plays and is locked.");
+                    } else {
+                        // Allow to continue playing for track_3 even if server returns error or plays count
+                        const plays = data.plays || 0;
+                        if (countBadgeEl) {
+                            countBadgeEl.innerText = `(${plays} plays)`;
+                        }
                     }
-                    if (trackKey === 'track_3') {
-                        const otherBadge = document.getElementById(countBadgeEl.id === 'play-count-3' ? 'play-count-review' : 'play-count-3');
-                        if (otherBadge) otherBadge.innerText = `(${plays}/2 plays)`;
-                    }
-                    lockAudioEl(trackKey, audioEl);
-                    alert("This audio track has reached the maximum limit of 2 plays and is locked.");
                 }
             })
             .catch(err => {
@@ -866,19 +877,27 @@
     document.addEventListener("DOMContentLoaded", () => {
         const audio1 = document.getElementById('audio-track-1');
         const audio2 = document.getElementById('audio-track-2');
+        @if($hasListeningPassage)
         const audio3 = document.getElementById('audio-track-3');
+        @endif
 
         const card1 = document.getElementById('audio-step-card-1');
         const card2 = document.getElementById('audio-step-card-2');
+        @if($hasListeningPassage)
         const card3 = document.getElementById('audio-step-card-3');
+        @endif
 
         const status1 = document.getElementById('step-status-1');
         const status2 = document.getElementById('step-status-2');
+        @if($hasListeningPassage)
         const status3 = document.getElementById('step-status-3');
+        @endif
 
         const badge1 = document.getElementById('step-badge-1');
         const badge2 = document.getElementById('step-badge-2');
+        @if($hasListeningPassage)
         const badge3 = document.getElementById('step-badge-3');
+        @endif
 
         const startQuizBtnContainer = document.getElementById('start-quiz-btn-container');
         const startQuizBtn = document.getElementById('start-quiz-btn');
@@ -906,11 +925,15 @@
         // Initialize Prep Flow on Page Load
         function initializePrepFlow() {
             audio2.removeAttribute('controls');
+            @if($hasListeningPassage)
             audio3.removeAttribute('controls');
+            @endif
 
             const t1Plays = playsData.track_1 || 0;
             const t2Plays = playsData.track_2 || 0;
+            @if($hasListeningPassage)
             const t3Plays = playsData.track_3 || 0;
+            @endif
 
             if (t1Plays >= 1) {
                 markStepCompleted(card1, status1, badge1, t1Plays);
@@ -920,17 +943,25 @@
                 status1.innerText = '⏳ Awaiting Playback';
             }
 
-            if (t1Plays >= 1 && t2Plays >= 1) {
-                markStepCompleted(card2, status2, badge2, t2Plays);
-                if (t2Plays >= 2) lockAudioEl('track_2', audio2);
-                unlockStep(card3, audio3, status3, badge3, t3Plays);
-            }
+            @if($hasListeningPassage)
+                if (t1Plays >= 1 && t2Plays >= 1) {
+                    markStepCompleted(card2, status2, badge2, t2Plays);
+                    if (t2Plays >= 2) lockAudioEl('track_2', audio2);
+                    unlockStep(card3, audio3, status3, badge3, t3Plays);
+                }
 
-            if (t1Plays >= 1 && t2Plays >= 1 && t3Plays >= 1) {
-                markStepCompleted(card3, status3, badge3, t3Plays);
-                if (t3Plays >= 2) lockAudioEl('track_3', audio3);
-                startQuizBtnContainer.style.display = 'block';
-            }
+                if (t1Plays >= 1 && t2Plays >= 1 && t3Plays >= 1) {
+                    markStepCompleted(card3, status3, badge3, t3Plays);
+                    if (t3Plays >= 2) lockAudioEl('track_3', audio3);
+                    startQuizBtnContainer.style.display = 'block';
+                }
+            @else
+                if (t1Plays >= 1 && t2Plays >= 1) {
+                    markStepCompleted(card2, status2, badge2, t2Plays);
+                    if (t2Plays >= 2) lockAudioEl('track_2', audio2);
+                    startQuizBtnContainer.style.display = 'block';
+                }
+            @endif
         }
 
         // Register tracking
@@ -944,11 +975,13 @@
             card2.classList.remove('bg-brand-navy-dark/5');
             card2.classList.add('bg-brand-gold/5', 'border-brand-gold');
         });
+        @if($hasListeningPassage)
         registerAudioTracking('track_3', audio3, document.getElementById('play-count-3'), (plays) => {
             status3.innerText = '🔊 Playing...';
             card3.classList.remove('bg-brand-navy-dark/5');
             card3.classList.add('bg-brand-gold/5', 'border-brand-gold');
         });
+        @endif
 
         // Listen for ended events to unlock sequential steps
         audio1.addEventListener('ended', () => {
@@ -962,9 +995,22 @@
             const currentPlays = parseInt(document.getElementById('play-count-2').innerText.match(/\d+/)[0]) || 1;
             markStepCompleted(card2, status2, badge2, currentPlays);
             if (currentPlays >= 2) lockAudioEl('track_2', audio2);
-            unlockStep(card3, audio3, status3, badge3, playsData.track_3 || 0);
+            @if($hasListeningPassage)
+                unlockStep(card3, audio3, status3, badge3, playsData.track_3 || 0);
+            @else
+                // Enable Start Quiz CTA Button directly for non-listening sections
+                startQuizBtnContainer.style.display = 'block';
+                startQuizBtnContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+                if (currentPlays >= 2) {
+                    if (startQuizBtn) {
+                        startQuizBtn.click();
+                    }
+                }
+            @endif
         });
 
+        @if($hasListeningPassage)
         audio3.addEventListener('ended', () => {
             const currentPlays = parseInt(document.getElementById('play-count-3').innerText.match(/\d+/)[0]) || 1;
             markStepCompleted(card3, status3, badge3, currentPlays);
@@ -982,6 +1028,7 @@
                 }
             }
         });
+        @endif
 
         initializePrepFlow();
 
